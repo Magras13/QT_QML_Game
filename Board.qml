@@ -7,19 +7,26 @@ GridView {
 
     }
 
-    cellHeight: height / 4
-    cellWidth: width / 4
+    cellHeight: height / _root.model.dimension
+    cellWidth: width / _root.model.dimension
 
     delegate: Item {
         id: _backgroundDelegate
         width: _root.cellWidth
         height: _root.cellHeight
 
-        visible: display != 16
+        visible: display !== _root.model.hiddenValue
         Block{
                 displayText: display
                 anchors.fill: _backgroundDelegate
                 anchors.margins: 3
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        _root.model.move(index);
+                    }
+                }
         }
     }
 }

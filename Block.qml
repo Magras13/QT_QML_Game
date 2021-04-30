@@ -13,11 +13,11 @@ Rectangle {
     Text{
         id: _firtsText
         anchors.centerIn: root
+
         text: root.displayText
-        font: {
-            pointSize: Math.min(root.width, root.height) / 3
-            bold: true
-        }
+
+        font.bold: true
+        font.pointSize: root.height * 0.33
     }
 
 
